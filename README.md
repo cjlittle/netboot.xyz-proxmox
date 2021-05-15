@@ -6,7 +6,7 @@ This has been tested as of May 2021 with Proxmox v.6.4-1 and netboot.xyz v.2.0.3
 
 
 ## Creating Proxmox Assets for PXE
-Take the current [Proxmox ISO](https://www.proxmox.com/en/downloads/category/iso-images-pve) and run the `pve-iso-2-pxe.sh` script that you can find at morph027/pve-iso-2-pxe.
+Take the current [Proxmox ISO](https://www.proxmox.com/en/downloads/category/iso-images-pve) and run the `pve-iso-2-pxe.sh` script that you can find at [morph027/pve-iso-2-pxe](https://github.com/morph027/pve-iso-2-pxe).
 
 You'll need to host the assets the script derives from the ISO.  Host them somewhere that is reachable from the machine that you're netboot'ing from.
 
