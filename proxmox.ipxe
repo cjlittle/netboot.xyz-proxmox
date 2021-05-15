@@ -1,0 +1,36 @@
+#!ipxe
+
+goto ${menu} ||
+
+:live_menu
+# Use Local Override
+set live_endpoint ${live_endpoint_local}
+
+set os Proxmox
+set pve_version 6.4-1
+set pve_opts vga=791 video=vesafb:ywrap,mtrr ramdisk_size=16777216 rw quiet initrd=initrd.iso.img
+set pve_url ${live_endpoint}/proxmox/${pve_version}
+
+menu ${os}
+item --gap ${os} - ${pve_version}
+item normal ${space} Install Proxmox ${pve_version}
+item debug ${space} Install Proxmox ${pve_version} (Debug Mode)
+choose live_version || goto live_exit
+imgfree
+goto ${live_version}
+
+:debug
+kernel ${pve_url}/linux26 ${pve_opts} splash=verbose proxdebug ${cmdline}
+goto boot
+
+:normal
+kernel ${pve_url}/linux26 ${pve_opts} splash=silent ${cmdline}
+goto boot
+
+:boot
+initrd ${pve_url}/initrd.iso.img
+boot
+
+:live_exit
+clear menu
+exit 0
