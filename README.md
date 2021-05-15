@@ -1,4 +1,4 @@
-# Adding Proxmox to your netboot.cfg installation
+# Adding Proxmox to your netboot.xyz installation
 
 To get Proxmox installable via netboot.xyz, you have a couple choices.  You will need to host the assets to install Proxmox, as the ISO they provide won't work directly with netboot. You can then create a netboot-custom repsoitory in GitHub that you can easily chain in from the hosted netboot.xyz implementation.  Or you can self host netboot.xyz and update the scripts locally.  I've chosen to do the later, and am running [netboot.xyz in a container](https://hub.docker.com/r/linuxserver/netbootxyz).
 
